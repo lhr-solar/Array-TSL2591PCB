@@ -1,0 +1,222 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Transistor_FET:BSS138 Q1
+U 1 1 6004C224
+P 4350 2650
+F 0 "Q1" V 4599 2650 50  0000 C CNN
+F 1 "BSS138" V 4690 2650 50  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 4550 2575 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 4350 2650 50  0001 L CNN
+	1    4350 2650
+	0    1    1    0   
+$EndComp
+$Comp
+L Transistor_FET:BSS138 Q2
+U 1 1 6004F25D
+P 5100 2550
+F 0 "Q2" V 5349 2550 50  0000 C CNN
+F 1 "BSS138" V 5440 2550 50  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 5300 2475 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 5100 2550 50  0001 L CNN
+	1    5100 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 6005217F
+P 5950 2500
+F 0 "R1" H 6020 2546 50  0000 L CNN
+F 1 "10k" H 6020 2455 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 5880 2500 50  0001 C CNN
+F 3 "~" H 5950 2500 50  0001 C CNN
+	1    5950 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR01
+U 1 1 60054825
+P 6200 2200
+F 0 "#PWR01" H 6200 2050 50  0001 C CNN
+F 1 "+3V3" H 6215 2373 50  0000 C CNN
+F 2 "" H 6200 2200 50  0001 C CNN
+F 3 "" H 6200 2200 50  0001 C CNN
+	1    6200 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 60053D35
+P 6450 2500
+F 0 "R2" H 6520 2546 50  0000 L CNN
+F 1 "10k" H 6520 2455 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 6380 2500 50  0001 C CNN
+F 3 "~" H 6450 2500 50  0001 C CNN
+	1    6450 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5950 2350 6200 2350
+Wire Wire Line
+	6200 2200 6200 2350
+Connection ~ 6200 2350
+Wire Wire Line
+	6200 2350 6450 2350
+Wire Wire Line
+	5950 2350 5100 2350
+Connection ~ 5950 2350
+Wire Wire Line
+	5100 2350 4350 2350
+Wire Wire Line
+	4350 2350 4350 2450
+Connection ~ 5100 2350
+Text Label 4150 2750 2    50   ~ 0
+SDA_in
+Text Label 4550 2750 0    50   ~ 0
+SDA_out
+Text Label 4900 2650 2    50   ~ 0
+SCL_in
+Text Label 5300 2650 0    50   ~ 0
+SCL_out
+Wire Wire Line
+	5950 2650 5300 2650
+Wire Wire Line
+	6450 2650 6450 3000
+Wire Wire Line
+	6450 3000 4550 3000
+Wire Wire Line
+	4550 3000 4550 2750
+$Comp
+L tsl2591_smaller:TSL2591 U1
+U 1 1 60064A60
+P 8650 2750
+F 0 "U1" V 8604 2628 50  0000 L CNN
+F 1 "TSL2591" V 8695 2628 50  0000 L CNN
+F 2 "tsl2591_smaller:tsl2591" H 8650 2750 50  0001 C CNN
+F 3 "" H 8650 2750 50  0001 C CNN
+	1    8650 2750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6450 2350 7500 2350
+Wire Wire Line
+	7500 2350 7500 2950
+Wire Wire Line
+	7500 2950 7600 2950
+Connection ~ 6450 2350
+$Comp
+L Device:C_Small C1
+U 1 1 6006B095
+P 7500 3050
+F 0 "C1" H 7408 3004 50  0000 R CNN
+F 1 "10u" H 7408 3095 50  0000 R CNN
+F 2 "Resistors_SMD:R_0805" H 7500 3050 50  0001 C CNN
+F 3 "~" H 7500 3050 50  0001 C CNN
+	1    7500 3050
+	-1   0    0    1   
+$EndComp
+Connection ~ 7500 2950
+Wire Wire Line
+	7500 3150 7600 3150
+Wire Wire Line
+	7850 3150 7850 3100
+$Comp
+L power:GND #PWR02
+U 1 1 6006E387
+P 7500 3350
+F 0 "#PWR02" H 7500 3100 50  0001 C CNN
+F 1 "GND" H 7505 3177 50  0000 C CNN
+F 2 "" H 7500 3350 50  0001 C CNN
+F 3 "" H 7500 3350 50  0001 C CNN
+	1    7500 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 3350 7500 3150
+Connection ~ 7500 3150
+Text Label 8050 2500 2    50   ~ 0
+SCL_out
+NoConn ~ 8050 2650
+Text Label 8050 2350 2    50   ~ 0
+SDA_out
+$Comp
+L power:+3V3 #PWR03
+U 1 1 6007AD26
+P 9100 2500
+F 0 "#PWR03" H 9100 2350 50  0001 C CNN
+F 1 "+3V3" V 9115 2628 50  0000 L CNN
+F 2 "" H 9100 2500 50  0001 C CNN
+F 3 "" H 9100 2500 50  0001 C CNN
+	1    9100 2500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 6007BFAB
+P 9100 2600
+F 0 "#PWR04" H 9100 2350 50  0001 C CNN
+F 1 "GND" V 9105 2472 50  0000 R CNN
+F 2 "" H 9100 2600 50  0001 C CNN
+F 3 "" H 9100 2600 50  0001 C CNN
+	1    9100 2600
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J1
+U 1 1 60074FEE
+P 9300 2400
+F 0 "J1" H 9328 2376 50  0000 L CNN
+F 1 "Conn_01x04_Female" H 9328 2285 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical_SMD" H 9300 2400 50  0001 C CNN
+F 3 "~" H 9300 2400 50  0001 C CNN
+	1    9300 2400
+	1    0    0    -1  
+$EndComp
+Text Label 9100 2300 2    50   ~ 0
+SDA_in
+Text Label 9100 2400 2    50   ~ 0
+SCL_in
+$Comp
+L MPPT-rescue:PWR_FLAG #FLG01
+U 1 1 6007E378
+P 7600 2950
+F 0 "#FLG01" H 7600 3025 50  0001 C CNN
+F 1 "PWR_FLAG" H 7600 3123 50  0000 C CNN
+F 2 "" H 7600 2950 50  0001 C CNN
+F 3 "" H 7600 2950 50  0001 C CNN
+	1    7600 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L MPPT-rescue:PWR_FLAG #FLG02
+U 1 1 60080A8B
+P 7600 3150
+F 0 "#FLG02" H 7600 3225 50  0001 C CNN
+F 1 "PWR_FLAG" H 7600 3323 50  0000 C CNN
+F 2 "" H 7600 3150 50  0001 C CNN
+F 3 "" H 7600 3150 50  0001 C CNN
+	1    7600 3150
+	-1   0    0    1   
+$EndComp
+Connection ~ 7600 2950
+Connection ~ 7600 3150
+Wire Wire Line
+	7600 3150 7850 3150
+Wire Wire Line
+	7850 3100 8050 3100
+Wire Wire Line
+	7600 2950 8050 2950
+$EndSCHEMATC
